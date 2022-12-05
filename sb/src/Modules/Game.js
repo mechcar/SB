@@ -127,6 +127,7 @@ export const Game = (data) => {
 	// Fire updateRanking after score has been updated
 	useEffect(() => {
 		updateRanking();
+		// eslint-disable-next-line
 	}, [score]);
 
 	// Check conditions of entered word to verify that is an accepted word

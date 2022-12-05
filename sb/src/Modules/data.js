@@ -38,16 +38,16 @@ var checkAcceptedWords = () => {
 			dictionary[entry].length >= 4 &&
 			dictionary[entry].length <= 9
 		) {
-			// Check to see that the acceptedWords array contains at least 1 pangram
-			if (letters.every((letter) => dictionary[entry].includes(letter))) {
-				pangramCheck = true;
-			}
 			acceptedWords.push(dictionary[entry]);
+		}
+		// Check to see that the acceptedWords array contains at least 1 pangram
+		if (letters.every((letter) => dictionary[entry].includes(letter))) {
+			pangramCheck = true;
 		}
 	}
 };
 
-// Shuffle letters and check until 20 words are listed
+// Shuffle letters and check until 25 words are listed
 var acceptedLength = false;
 while (acceptedLength === false) {
 	pangramCheck = false;
@@ -55,7 +55,11 @@ while (acceptedLength === false) {
 	shuffleAlphabet();
 	checkAcceptedWords();
 	// Check to see if word list contains at least 25 words and at least 1 pangram
-	if (acceptedWords.length >= 5 && pangramCheck) {
+	if (
+		acceptedWords.length >= 25 &&
+		acceptedWords.length <= 60 &&
+		pangramCheck
+	) {
 		acceptedLength = true;
 		break;
 	}
@@ -108,5 +112,5 @@ if ((acceptedLength = true)) {
 	};
 }
 
-console.log(letters, otherLetters, acceptedWords);
+console.log(data.center, data.peripheral, acceptedWords);
 export default data;

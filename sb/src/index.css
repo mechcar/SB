@@ -162,6 +162,7 @@ button:hover {
 .word {
 	min-height: calc(8rem / var(--multiplier));
 	padding: calc(1.25rem * var(--multiplier));
+	margin-bottom: 1rem;
 }
 
 .word p {

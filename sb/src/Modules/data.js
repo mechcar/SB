@@ -5,11 +5,9 @@ const alphabetArray = alphabet.split("");
 
 var shuffledLetters = [];
 var letters = [];
-var otherLetters = "";
 
 const shuffleAlphabet = () => {
 	letters = [];
-	otherLetters = "";
 	shuffledLetters = [...alphabetArray]
 		.sort(function () {
 			return 0.5 - Math.random();
@@ -18,17 +16,13 @@ const shuffleAlphabet = () => {
 	for (var i = 0; i < 7; i++) {
 		letters.push(shuffledLetters.charAt(i));
 	}
-	for (var j = 7; j < shuffledLetters.length; j++) {
-		otherLetters += shuffledLetters.charAt(j);
-	}
-	console.log(letters, otherLetters);
 };
 
 // Test array to verify that approved words can be formed from selected letters
 var acceptedWords = [];
 var pangramCheck = false;
 var checkAcceptedWords = () => {
-	var regex = "^[^" + otherLetters + "]*$";
+	var regex = "^[" + letters.join("") + "]*$";
 	for (var entry = 0; entry < dictionary.length; entry++) {
 		if (
 			dictionary[entry].includes(letters[0]) &&
@@ -40,8 +34,10 @@ var checkAcceptedWords = () => {
 		) {
 			acceptedWords.push(dictionary[entry]);
 		}
+	}
+	for (var j = 0; j < acceptedWords.length; j++) {
 		// Check to see that the acceptedWords array contains at least 1 pangram
-		if (letters.every((letter) => dictionary[entry].includes(letter))) {
+		if (letters.every((letter) => acceptedWords[j].includes(letter))) {
 			pangramCheck = true;
 		}
 	}
@@ -112,5 +108,5 @@ if ((acceptedLength = true)) {
 	};
 }
 
-console.log(data.center, data.peripheral, acceptedWords);
+console.log(data.center, data.peripheral, data.words);
 export default data;

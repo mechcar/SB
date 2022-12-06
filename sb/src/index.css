@@ -72,6 +72,7 @@ button:hover {
 	text-align: center;
 	margin: 0.5rem 0;
 	text-transform: capitalize;
+	font-size: 1.6rem;
 }
 
 .found-words {
@@ -336,7 +337,7 @@ button:hover {
 		height: 1.5rem;
 	}
 	.found-words_detailed-container {
-		top: 4.8rem;
+		top: 3.6rem;
 	}
 	.found-words_detailed {
 		max-height: 60rem;
